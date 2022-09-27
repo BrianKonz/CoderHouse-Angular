@@ -1,16 +1,14 @@
 <h6>Listado de Alumnos</h6>
 
+
 <ul>
-    <li>Nicolas Cage</li>
-    <li>Demi Moore</li>
-    <li>Ricky Martin</li>
-    <li>Bono</li>
-    <li>Bruce Willis</li>
-    <li>Elon Musk</li>
-    <li>Celine Dion</li>
-    <li>Robbie Williams</li>
-    <li>Cardi B</li>
-    <li>Angelina Jolie</li>
-    <li>Natalie Portman</li>
-    <li>Tom Cruise</li>
+    <div *ngFor="let persona of listaAlumnos">
+        <li [ngClass]="persona.edad > 44 ? 'texto-exito' : 'texto-error'" *ngIf="persona.nombre != 'Nicolas Cage'">
+            <div>
+                {{persona.nombre | uppercase}}
+                {{persona.edad}}
+            </div>
+        </li>
+    </div>
 </ul>
+
