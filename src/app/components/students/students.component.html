@@ -12,3 +12,10 @@
     </div>
 </ul>
 
+<input type="text" placeholder="Ingrese su nombre" [(ngModel)]="nombre">
+<p>Su nombre es: {{ nombre }}</p>
+
+
+<p>Variable 1 tiene un valor de: {{variable1}}</p>
+<button class="btn btn-primary" (click)="manejarEvento()">Modificar</button>
+

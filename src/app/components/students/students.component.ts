@@ -8,6 +8,8 @@ import { Persona } from 'src/app/models/alumnos';
 })
 export class StudentsComponent implements OnInit {
 
+  nombre!: string;
+
   listaAlumnos:Array<Persona> = [
     
     {nombre: 'Nicolas Cage', edad: 44},
@@ -24,6 +26,10 @@ export class StudentsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  manejarEvento() {
+    this.variable1 = Math.round(Math.random()*10)
   }
 
 }
