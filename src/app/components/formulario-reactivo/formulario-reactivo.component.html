@@ -1,0 +1,51 @@
+<main class="mainReactivo">
+<h1>LOGIN</h1>
+
+<form [formGroup]="formularioUsuario" (ngSubmit)="agregarUsuario()">
+    <div class="row mb-3">
+        <label for="inputNombre3" class="col-sm-2 col-form-label">Nombre:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputNombre3" formControlName="nombre">
+          <p *ngIf="formularioUsuario.get('nombre')?.touched && formularioUsuario.get('nombre')?.errors?.['required']">*El campo nombre es requerido</p>
+        </div>
+    </div>
+    <div class="row mb-3">
+      <label for="inputEmail3" class="col-sm-2 col-form-label">Email:</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="inputEmail3" formControlName="correo">
+        <p *ngIf="formularioUsuario.get('correo')?.touched && formularioUsuario.get('correo')?.errors?.['required']">*El campo contraseña es requerido</p>
+        <p *ngIf="formularioUsuario.get('correo')?.touched && formularioUsuario.get('correo')?.errors?.['pattern']">*El formato del correo no es correcto</p>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="inputPassword3" class="col-sm-2 col-form-label">Password:</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" id="inputPassword3" formControlName="contraseña">
+        <p *ngIf="formularioUsuario.get('contraseña')?.touched && formularioUsuario.get('contraseña')?.errors?.['required']">*El campo contraseña es requerido</p>
+        <p *ngIf="formularioUsuario.get('contraseña')?.touched && formularioUsuario.get('contraseña')?.errors?.['minlength']">*La contraseña debe tener un mínimo de 5 carateres</p>
+        <p *ngIf="formularioUsuario.get('contraseña')?.touched && formularioUsuario.get('contraseña')?.errors?.['pattern']">*La contraseña debe tener al menos una mayuscula</p>
+      </div>
+      
+    </div>
+    <div class="row mb-3">
+      <label for="inputPassword3" class="col-sm-2 col-form-label">Confirm Password:</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" id="inputPassword3" formControlName="contraseña2">
+        <p *ngIf="formularioUsuario.get('contraseña2')?.touched && formularioUsuario.get('contraseña2')?.errors?.['required']">*El campo contraseña es requerido</p>
+        <p *ngIf="formularioUsuario.get('contraseña2')?.touched && formularioUsuario.get('contraseña2')?.errors?.['minlength']">*La contraseña debe tener un mínimo de 5 carateres</p>
+        <p *ngIf="!contrasenasIguales">*Las Contraseñas deben ser iguales</p>
+      </div>
+      
+    </div>
+    <div class="row mb-3">
+        <label for="" class="col-sm-2 col-form-label">Admin</label>
+        <div class="form-check col-sm-10">
+          <input class="form-check-input" type="checkbox" id="gridCheck1" formControlName="admin">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="formularioUsuario.invalid">Sign in</button>
+  </form>
+
+
+
+</main>

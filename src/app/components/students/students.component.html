@@ -1,21 +1,60 @@
+<main class="mainStudents">
 <h6>Listado de Alumnos</h6>
 
-
-<ul>
-    <div *ngFor="let persona of listaAlumnos">
-        <li [ngClass]="persona.edad > 44 ? 'texto-exito' : 'texto-error'" *ngIf="persona.nombre != 'Nicolas Cage'">
-            <div>
-                {{persona.nombre | uppercase}}
-                {{persona.edad}}
-            </div>
-        </li>
+<form class="form-group row mb-4">
+        
+    <div class="form-group col-md-3">
+      <label for="nombre">Nombre:</label>
+      <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" [(ngModel)]="cuadroNombre">
     </div>
-</ul>
 
-<input type="text" placeholder="Ingrese su nombre" [(ngModel)]="nombre">
-<p>Su nombre es: {{ nombre }}</p>
+    <div class="form-group col-md-3">
+      <label for="apellido">Apellido:</label>
+      <input type="text" name="Apellido" id="Apellido" placeholder="Apellido" class="form-control" [(ngModel)]="cuadroApellido">
+    </div>
 
+    <div class="form-group col-md-3">
+      <label for="id">Edad:</label>
+      <input type="text" name="edad" edad="edad" placeholder="edad" class="form-control" [(ngModel)]="cuadroEdad">
+    </div>
 
-<p>Variable 1 tiene un valor de: {{variable1}}</p>
-<button class="btn btn-primary" (click)="manejarEvento()">Modificar</button>
+    <div class="form-group col-md-3">
+      <label for="curso">Curso:</label>
+      <input type="text" name="curso" id="curso" placeholder="curso" class="form-control" [(ngModel)]="cuadroCurso">
+    </div>
+
+    <div class="col">
+      <button type="submit" class="btn btn-primary mt-4" (click)="agregarAlumno()" [disabled]="!cuadroNombre || !cuadroApellido || !cuadroEdad || !cuadroCurso">Agregar Alumno</button>
+    </div>
+
+  </form>
+
+  <mat-form-field color="primary" appearance="outline">
+      <mat-label color="primary">Buscar</mat-label>
+      <input color="accent" type="text" matInput>
+  </mat-form-field>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">NAME</th>
+        <th scope="col">SURNAME</th>
+        <th scope="col">AGE</th>
+        <th scope="col">CLASS</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let persona of listaAlumnos; let i=index">
+      <tr>
+        
+        <th scope="row">{{i+1}}</th>
+        <td>{{persona.nombre}}</td>
+        <td>{{persona.apellido}}</td>
+        <td>{{persona.edad}}</td>
+        <td [ngClass]="persona.curso === 'Angular' ? 'texto-exito' : 'texto-error'">{{persona.curso}}</td>
+  
+    </tbody>
+  </table>
+</main>
+
 

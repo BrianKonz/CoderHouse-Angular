@@ -1,6 +1,13 @@
-<div class="container">
-    <app-toolbar class="Header"></app-toolbar>
-    <app-nav-bar class="Nav-Bar"></app-nav-bar>
-    <app-students class="Students"></app-students>
-    <app-footer class="Footer"></app-footer>
-  </div>
+<app-header></app-header>
+
+<nav class="nav flex-column float-start">
+  <a class="nav-link active" aria-current="page" routerLink="">Login</a>
+  <a class="nav-link" routerLink="/students">Students</a>
+  <a class="nav-link" routerLink="/contacto">Contacto</a>
+</nav>
+
+    
+<router-outlet></router-outlet>
+
+<app-footer></app-footer>
+

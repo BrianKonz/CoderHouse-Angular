@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Persona } from 'src/app/models/alumnos';
+import { __values } from 'tslib';
 
 @Component({
   selector: 'app-students',
@@ -8,28 +9,30 @@ import { Persona } from 'src/app/models/alumnos';
 })
 export class StudentsComponent implements OnInit {
 
-  nombre!: string;
 
-  listaAlumnos:Array<Persona> = [
+  listaAlumnos:Persona[] = [
     
-    {nombre: 'Nicolas Cage', edad: 44},
-    {nombre: 'Demi Moore', edad: 32},
-    {nombre: 'Ricky Martin', edad: 51},
-    {nombre: 'Bruce Willis', edad: 33},
-    {nombre: 'Elon Musk', edad: 61},
-    
-  ]
+    new Persona('Nicolas','Cage',44,'Angular'),
+    new Persona('Demi','Moore',51,'JavaScript'),
+    new Persona('Ricky','Martin',33,'NodeJs'),
+    new Persona('Elon','Musk',61,'Java')    
+  ];
 
 
-  variable1: Number = 5;
+  cuadroNombre:string="";
+  cuadroApellido:string="";
+  cuadroEdad:number=0;
+  cuadroCurso:string="";
+
+  agregarAlumno(){
+    let miAlumno = new Persona (this.cuadroNombre,this.cuadroApellido,this.cuadroEdad,this.cuadroCurso)
+    this.listaAlumnos.push(miAlumno)
+  }
+
 
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  manejarEvento() {
-    this.variable1 = Math.round(Math.random()*10)
   }
 
 }
