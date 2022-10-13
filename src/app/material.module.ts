@@ -13,7 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
         MatFormFieldModule,
         MatInputModule,
         MatTableModule,
-        MatIconModule
+        MatIconModule,
       ],
     exports: [
         MatButtonModule,

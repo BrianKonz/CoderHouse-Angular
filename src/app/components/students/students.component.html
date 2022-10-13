@@ -1,42 +1,47 @@
 <main class="mainStudents">
 <h6>Listado de Alumnos</h6>
 
-<form class="form-group row mb-4">
+<form class="form-group row mb-4" [formGroup]="formularioAlumnos">
         
     <div class="form-group col-md-3">
       <label for="nombre">Nombre:</label>
-      <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" [(ngModel)]="cuadroNombre">
+      <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" formControlName="nombre" [(ngModel)]="cuadroNombre">
     </div>
 
     <div class="form-group col-md-3">
       <label for="apellido">Apellido:</label>
-      <input type="text" name="Apellido" id="Apellido" placeholder="Apellido" class="form-control" [(ngModel)]="cuadroApellido">
+      <input type="text" name="Apellido" id="Apellido" placeholder="Apellido" class="form-control" formControlName="apellido" [(ngModel)]="cuadroApellido">
     </div>
 
     <div class="form-group col-md-3">
       <label for="id">Edad:</label>
-      <input type="text" name="edad" edad="edad" placeholder="edad" class="form-control" [(ngModel)]="cuadroEdad">
+      <input type="text" name="edad" edad="edad" placeholder="edad" class="form-control" formControlName="edad" [(ngModel)]="cuadroEdad">
     </div>
 
     <div class="form-group col-md-3">
       <label for="curso">Curso:</label>
-      <input type="text" name="curso" id="curso" placeholder="curso" class="form-control" [(ngModel)]="cuadroCurso">
+      <input type="text" name="curso" id="curso" placeholder="curso" class="form-control" formControlName="curso" [(ngModel)]="cuadroCurso">
     </div>
     
     <br>
     <br>
     <br>
-      <button mat-flat-button color="primary" (click)="agregarAlumno()">Agregar Alumno</button>
+      <button mat-flat-button color="primary" (click)="agregarAlumno()" [disabled]="formularioAlumnos.invalid">Agregar Alumno</button>
     
   </form>
 
-  <mat-form-field color="primary" appearance="outline">
-      <mat-label color="primary">Buscar</mat-label>
-      <input type="text" matInput (keyup)="filtrar($event)">
-  </mat-form-field>
+  <div class="row">
+
+    <mat-form-field>
+      <mat-label>Buscar</mat-label>
+        <input matInput (keyup)='filtrar($event)'>
+    </mat-form-field>
+    
+  </div>
 
 
-  <table mat-table [dataSource]="dataSource">
+
+  <table mat-table [dataSource]="dataSource" >
     <!--ID-->
     <ng-container matColumnDef="ID">
       <th mat-header-cell *matHeaderCellDef>ID</th>
@@ -55,7 +60,7 @@
     <!--Edad-->
     <ng-container matColumnDef="Edad">
       <th mat-header-cell *matHeaderCellDef>Edad</th>
-      <td mat-cell *matCellDef="let element">{{element.Edad}}</td>
+      <td mat-cell *matCellDef="let element">{{element.edad}}</td>
     </ng-container>
     <!--Curso-->
     <ng-container matColumnDef="Curso">

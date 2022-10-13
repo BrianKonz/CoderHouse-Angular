@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { Persona } from 'src/app/models/alumnos';
-import { __values } from 'tslib';
+
 
 @Component({
   selector: 'app-students',
@@ -9,6 +10,7 @@ import { __values } from 'tslib';
   styleUrls: ['./students.component.css']
 })
 export class StudentsComponent implements OnInit {
+
 
 
   listaAlumnos:Persona[] = [
@@ -31,10 +33,20 @@ export class StudentsComponent implements OnInit {
   agregarAlumno(){
     let miAlumno = new Persona (this.cuadroNombre,this.cuadroApellido,this.cuadroEdad,this.cuadroCurso)
     this.listaAlumnos.push(miAlumno)
+    this.dataSource = new MatTableDataSource<Persona>(this.listaAlumnos);
   }
 
+  formularioAlumnos: FormGroup;
 
-  constructor() { }
+  constructor(private fb: FormBuilder) { 
+    this.formularioAlumnos = fb.group({
+      nombre: new FormControl('', [Validators.required]),
+      apellido: new FormControl('', [Validators.required]),
+      edad: new FormControl('', [Validators.required]),
+      curso: new FormControl('', [Validators.required]),    
+    })
+
+  }
 
   ngOnInit(): void {
   }

@@ -1,13 +1,28 @@
-<p>SAS</p>
+<div class="divContacto">
+<form class="form-group row mb-4">
+        
+    <div class="form-group col-md-3">
+      <label for="nombre">Nombre:</label>
+      <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" [(ngModel)]="cuadroNombreContacto">
+    </div>
 
-<button mat-button>Prueba</button>
-<button mat-button color="primary">Prueba</button>
-<button mat-button color="accent">Prueba</button>
-<button mat-button color="warn">Prueba</button>
+    <div class="form-group col-md-3">
+      <label for="id">Mail:</label>
+      <input type="text" name="edad" edad="edad" placeholder="edad" class="form-control" [(ngModel)]="cuadroMailContacto">
+    </div>
 
-<button mat-flat-button>Prueba</button>
-<button mat-flat-button color="primary">Prueba</button>
-<button mat-flat-button color="accent">Prueba</button>
-<button mat-flat-button color="warn">Prueba</button>
+    <div class="form-group col-md-3">
+      <label for="curso">Consulta:</label>
+      <input type="text" name="curso" id="curso" placeholder="curso" class="form-control" [(ngModel)]="cuadroConsutaContacto">
+    </div>
+    
+    <br>
+    <br>
+    <br>
+      <button mat-flat-button color="primary" (click)="enviarConsulta()">Enviar Consulta</button>
+    
+  </form>
+</div>
+
 
 

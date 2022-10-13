@@ -11,11 +11,16 @@ import { ContactoComponent } from './components/contacto/contacto.component';
 import { HeaderComponent } from './components/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import { CursosComponent } from './components/cursos/cursos.component';
+import { BooleanToTextPipe } from './pipe/boolean-to-text.pipe';
+import { BooleanStyleDirective } from './directives/boolean-style.directive';
+import { FiltroCursosPipe } from './pipe/filtro-cursos.pipe';
 
 
 const appRoutes:Routes=[
-  {path:'', component:FormularioReactivoComponent},
-  {path:'students', component:StudentsComponent},
+  {path:'', component:StudentsComponent},
+  {path:'login', component:FormularioReactivoComponent},
+  {path:'cursos', component:CursosComponent},
   {path:'contacto', component:ContactoComponent},
   ];
 
@@ -27,6 +32,10 @@ const appRoutes:Routes=[
     FormularioReactivoComponent,
     ContactoComponent,
     HeaderComponent,
+    BooleanToTextPipe,
+    BooleanStyleDirective,
+    CursosComponent,
+    FiltroCursosPipe
   ],
   imports: [
     BrowserModule,

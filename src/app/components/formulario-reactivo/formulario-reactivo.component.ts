@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-formulario-reactivo',
@@ -10,9 +10,7 @@ export class FormularioReactivoComponent implements OnInit {
   formularioUsuario: FormGroup;
   contrasenasIguales!: boolean;
 
-  constructor(
-    private fb: FormBuilder
-  ) { 
+  constructor(private fb: FormBuilder) { 
     this.formularioUsuario = fb.group({
       nombre: new FormControl('', [Validators.required]),
       correo: new FormControl('', [Validators.pattern('^[a-z]+@[a-z]+\\.[a-z]{2,3}$'), Validators.required]),
